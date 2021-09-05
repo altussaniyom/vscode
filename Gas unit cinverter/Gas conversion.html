@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <title>ALTUS Calculation</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abel">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+  <link rel="stylesheet" href="/assets/css/styles.min.css">
+</head>
+
+<body style="text-align: left;">
+  <nav class="navbar navbar-dark navbar-expand-md bg-dark">
+    <div class="container-fluid"><a class="navbar-brand" href="#">ALTUS Web</a><button data-toggle="collapse"
+        class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span
+          class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="navcol-1">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link active" href="main.html"><i class="fa fa-home"
+                style="text-align: center;width: 29px;"></i>Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="/Gas%20conversion.html">Gas Conversion</a></li>
+          <li class="nav-item"></li>
+          <li class="nav-item"><a class="nav-link" href="PurgeCal.html">Purge Calculation</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Logout&nbsp;&nbsp;<svg xmlns="http://www.w3.org/2000/svg"
+                width="1em" height="1em" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M8.51428 20H4.51428C3.40971 20 2.51428 19.1046 2.51428 18V6C2.51428 4.89543 3.40971 4 4.51428 4H8.51428V6H4.51428V18H8.51428V20Z"
+                  fill="currentColor"></path>
+                <path
+                  d="M13.8418 17.385L15.262 15.9768L11.3428 12.0242L20.4857 12.0242C21.038 12.0242 21.4857 11.5765 21.4857 11.0242C21.4857 10.4719 21.038 10.0242 20.4857 10.0242L11.3236 10.0242L15.304 6.0774L13.8958 4.6572L7.5049 10.9941L13.8418 17.385Z"
+                  fill="currentColor"></path>
+              </svg></a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <h1 class="text-center"
+    style="font-size: 35px;font-family: Abel, sans-serif;padding-right: 20px;padding-left: 20px;padding-top: 10px;">Gas
+    Conversion</h1>
+  <hr>
+  <div class="container" style="padding: 41px;">
+    <div>
+      <form id="form1" name="form1">
+        <div class="form-row" style="margin: 0px;">
+          <div class="col">
+            <div class="form-group"><select class="shadow custom-select custom-select-lg" name="from_gas"
+                onchange="convert_unit1()"
+                style="border-radius: 25px;font-family: Oswald, sans-serif;color: var(--blue);padding-bottom: 27px;text-align: center;">
+                <option value="" selected="">Nitrogen</option>
+                <option value="">Oxygen</option>
+                <option value="">Argon</option>
+                <option value="">Carbon Dioxide</option>
+                <option value="">Hydrongen</option>
+                <option value="">Helium</option>
+              </select></div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="col"><input class="border rounded-pill shadow form-control form-control-lg" type="number"
+              id="from_value2" placeholder="Enter a numeric value" name="from_value2" onkeyup="convert_unit1()"
+              onchange="convert_unit1()"
+              style="font-family: Oswald, sans-serif;text-align: center;color: var(--danger);"></div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <hr>
+  <h4 class="text-center" id="result1" style="font-family: Abel, sans-serif;">Result of Conversion</h4>
+  <div class="container" style="padding-top: 15px;font-family: Oswald, sans-serif;">
+    <div
+      style="background: #dd7500;border-radius: 20px;font-family: Abel, sans-serif;font-size: 20px;text-shadow: 0px 0px;">
+      <div class="row" id="row1" style="padding-top: 10px;">
+        <div class="col text-center" style="margin-top: 10px;"><span class="text-center" id="to_value1"
+            style="font-family: Oswald, sans-serif;">0</span></div>
+        <div class="col-4">
+          <p id="p1" style="margin-top: 10px;font-family: Oswald, sans-serif;">lb</p>
+        </div>
+      </div>
+      <div class="row" id="row2">
+        <div class="col text-center" style="margin-top: 10px;"><span class="text-center" id="to_value2"
+            style="font-family: Oswald, sans-serif;">0</span></div>
+        <div class="col-4">
+          <p id="p2" style="margin-top: 10px;font-family: Oswald, sans-serif;">kg</p>
+        </div>
+      </div>
+      <div class="row" id="row3">
+        <div class="col text-center" style="margin-top: 10px;"><span class="text-center" id="to_value3"
+            style="font-family: Oswald, sans-serif;">0</span></div>
+        <div class="col-4">
+          <p id="p3" style="margin-top: 10px;font-family: Oswald, sans-serif;">Scf</p>
+        </div>
+      </div>
+      <div class="row" id="row4">
+        <div class="col text-center" style="margin-top: 10px;"><span class="text-center" id="to_value4"
+            style="font-family: Oswald, sans-serif;">0</span></div>
+        <div class="col-4">
+          <p id="p4" style="margin-top: 10px;font-family: Oswald, sans-serif;">Nm3</p>
+        </div>
+      </div>
+      <div class="row" id="row5">
+        <div class="col text-center" style="margin-top: 10px;"><span class="text-center" id="to_value5"
+            style="font-family: Oswald, sans-serif;">0</span></div>
+        <div class="col-4">
+          <p id="p5" style="margin-top: 10px;font-family: Oswald, sans-serif;">Gallon</p>
+        </div>
+      </div>
+      <div class="row" id="row6">
+        <div class="col text-center" style="margin-top: 10px;"><span class="text-center" id="to_value6"
+            style="font-family: Oswald, sans-serif;">0</span></div>
+        <div class="col-4">
+          <p id="p6" style="margin-top: 10px;font-family: Oswald, sans-serif;">Liter</p>
+        </div>
+      </div>
+      <div class="row" id="row7" style="padding-bottom: 20px;">
+        <div class="col text-center" style="margin-top: 10px;"><span class="text-center" id="to_value7"
+            style="font-family: Oswald, sans-serif;">0</span></div>
+        <div class="col-4">
+          <p id="p7" style="margin-top: 10px;font-family: Oswald, sans-serif;">Sm3</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-dark" style="margin-top: 10px;">
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6 col-md-3 item">
+            <h3>About</h3>
+            <ul>
+              <li><a href="#">by ALTUE Web</a></li>
+              <li><a href="#">Gas Engineering Team</a></li>
+              <li><a href="#">v 1.0</a></li>
+            </ul>
+          </div>
+          <div class="col item social"><a href="#"><i class="icon ion-email"></i></a></div>
+        </div>
+        <p class="copyright">ALTUS Web © 2021</p>
+      </div>
+    </footer>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+  <script src="/assets/js/script.min.js"></script>
+</body>
+
+</html>
